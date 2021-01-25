@@ -1,0 +1,35 @@
+#!/bin/bash
+
+
+echo "Hello $LOGNAME"
+
+echo "what you want:"
+echo "Type 1 for see user processes"
+echo "Type 2 for see VM"
+echo "Type 3 for find out how much disk space is busy"
+echo "Type 4 for network info"
+
+read doing
+
+case $doing in
+
+1)
+ps aux | grep $LOGNAME
+;;
+
+2)
+cat /proc/meminfo
+;;
+
+3)
+df
+;;
+
+4)
+ifconfig | grep wlp3s0 -A 3
+;;
+
+
+esac
+
+
